@@ -90,8 +90,19 @@ impl Guest for PianoComponent {
                             .additional_fields
                             .insert(key.clone(), parse_value(value));
                     }
+
+                    // temporary: to test LMFR
+                    if key == "edition" && value == "fr" {
+                        payload.site_id = "645898".to_string();
+                    }
                 }
             }
+
+            // temporary: to test LMFR
+            event.data.additional_fields.insert(
+                "lmd_site_id".to_string(),
+                serde_json::Value::String(payload.site_id.clone()),
+            );
 
             payload.events.push(event);
 
@@ -153,8 +164,19 @@ impl Guest for PianoComponent {
                             .additional_fields
                             .insert(key.clone(), parse_value(value));
                     }
+
+                    // temporary: to test LMFR
+                    if key == "edition" && value == "fr" {
+                        payload.site_id = "645898".to_string();
+                    }
                 }
             }
+
+            // temporary: to test LMFR
+            event.data.additional_fields.insert(
+                "lmd_site_id".to_string(),
+                serde_json::Value::String(payload.site_id.clone()),
+            );
 
             payload.events.push(event);
 
